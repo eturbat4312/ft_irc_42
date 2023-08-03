@@ -75,3 +75,9 @@ const struct sockaddr_in &Client::getSocket() const
 {
     return (_sock);
 }
+
+void Client::setIp(const std::string &ip)
+{
+    _ip = ip;
+    _user.setHost(_ip);
+}

@@ -75,6 +75,8 @@ int main(int argc, char **argv)
 							char tmp_buff[100] = {0};
 							char *x = tmp_buff;
 							x = inet_ntoa(new_client->getSocket().sin_addr);
+							new_client->setIp(std::string(x));
+							my_data.clients.push_back(new_client);
 						}
 					}
 				}

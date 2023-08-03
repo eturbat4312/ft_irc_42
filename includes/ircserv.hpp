@@ -2,8 +2,9 @@
 
 #include "Client.hpp"
 #include "Channel.hpp"
+#include "User.hpp"
 
-# include <string>
+#include <string>
 #include <iostream>
 #include <sys/socket.h>
 #include <sys/types.h>
@@ -24,15 +25,16 @@
 
 class Client;
 
-typedef struct s_data{
-	int	port;
-	std::string	servername;
-	std::string	oper[2];
+typedef struct s_data
+{
+	int port;
+	std::string servername;
+	std::string oper[2];
 	// commands_map	commands;
-	std::vector<Client*>	clients;
-	std::vector<struct pollfd>	pollfds;
-	std::string	password;
-}t_data;
+	std::vector<Client *> clients;
+	std::vector<struct pollfd> pollfds;
+	std::string password;
+} t_data;
 
-int	data_init(int argc, char **argv, t_data *my_data);
-int	ft_atoi(const char *str);
+int data_init(int argc, char **argv, t_data *my_data);
+int ft_atoi(const char *str);

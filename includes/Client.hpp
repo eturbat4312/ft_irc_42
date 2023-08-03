@@ -7,6 +7,7 @@
 #include <sys/socket.h>
 
 class Client;
+class User;
 
 class Client
 {
@@ -15,7 +16,7 @@ private:
 	socklen_t _size;
 	int _fd;
 	std::string _ip;
-	// User	_user;
+	User _user;
 	// Buffer	_buffer;
 	// Registration	_register;
 	bool _isClose;
@@ -30,4 +31,5 @@ public:
 	socklen_t *getSizeAddress();
 	const int &getFd() const;
 	const struct sockaddr_in &getSocket() const;
+	void setIp(const std::string &ip);
 };
