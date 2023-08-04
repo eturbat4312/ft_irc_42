@@ -1,10 +1,13 @@
 #include "../../includes/Client.hpp"
+#include "../../includes/Buffer.hpp"
 
 Client::Client() : _sock(),
                    _size(sizeof(_sock)),
                    _fd(-1),
                    _ip(),
-                   _isClose(false)
+									 _user(),
+									 _buffer(),
+								   _isClose(false)
 {
     // Initialize the Client object with default values for its member variables.
     // The constructor is called when a new Client object is created.
@@ -80,4 +83,8 @@ void Client::setIp(const std::string &ip)
 {
     _ip = ip;
     _user.setHost(_ip);
+}
+
+char* Client::fillBuff(){
+	return (_buffer.getBuf(2));
 }

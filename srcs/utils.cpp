@@ -24,3 +24,12 @@ int	ft_atoi(const char *str)
 	}
 	return (nbr * neg);
 }
+
+Client *getClient(t_data *data, int fd){
+	for (std::vector<Client*>::iterator it = data->clients.begin(); it != data->clients.end(); it++){
+		if (fd == (*it)->getFd())
+			return (*it);
+	}
+	return (NULL);
+
+}

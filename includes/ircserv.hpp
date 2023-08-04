@@ -3,6 +3,7 @@
 #include "Client.hpp"
 #include "Channel.hpp"
 #include "User.hpp"
+#include "Buffer.hpp"
 
 #include <string>
 #include <iostream>
@@ -38,3 +39,4 @@ typedef struct s_data
 
 int data_init(int argc, char **argv, t_data *my_data);
 int ft_atoi(const char *str);
+Client	*getClient(t_data *data, int fd);

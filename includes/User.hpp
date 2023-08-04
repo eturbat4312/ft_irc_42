@@ -2,6 +2,8 @@
 
 #include "ircserv.hpp"
 
+#include <iostream>
+
 class Client;
 
 class User
