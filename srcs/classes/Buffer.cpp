@@ -1,6 +1,7 @@
 #include "../../includes/Buffer.hpp"
 
 Buffer::Buffer() : _buf1(), _buf2(){
+	std::cout << "Buffer object created " << std::endl;
 	clearBufs();
 }
 
