@@ -1,8 +1,7 @@
 #pragma once
-
+#include "ircserv.hpp"
 #include "Buffer.hpp" // Include the full definition of Buffer class here
 
-#include "ircserv.hpp"
 #include "User.hpp"
 
 #include <netinet/in.h>

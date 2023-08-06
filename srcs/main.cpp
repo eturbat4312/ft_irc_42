@@ -1,6 +1,6 @@
 #include "../includes/ircserv.hpp"
-#include "../includes/Client.hpp"
-#include "../includes/Buffer.hpp"
+// #include "../includes/Client.hpp"
+// #include "../includes/Buffer.hpp"
 
 // std::vector<Channel *> g_channels;
 
@@ -35,9 +35,10 @@ int main(int argc, char **argv)
 	std::cout << "[listening ...]" << std::endl;
 
 	int nb_fds = 1;
-	int	recieved = 0;
+	int recieved = 0;
 
 	Client server(server_address, socket_fd);
+	// Buffer buffer;
 	my_data.clients.push_back(&server);
 
 	struct pollfd s_poll;
@@ -87,13 +88,15 @@ int main(int argc, char **argv)
 
 							nb_fds++;
 						}
-						else{
+						else
+						{
 							add = false;
 							delete (new_client);
 						}
 					}
 				}
-				else{
+				else
+				{
 					std::cout << "[ in fd ]" << my_data.pollfds[i].fd << std::endl;
 
 					Client *client = getClient(&my_data, my_data.pollfds[i].fd);
@@ -101,6 +104,8 @@ int main(int argc, char **argv)
 						continue;
 					if ((recieved = recv(client->getFd(), client->fillBuff(), 512, MSG_DONTWAIT)) == -1)
 						continue;
+					// else if (!recieved)
+					// 	delete_client();
 				}
 			}
 		}
