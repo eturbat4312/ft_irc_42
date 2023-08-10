@@ -2,7 +2,7 @@
 // #include "../includes/Client.hpp"
 // #include "../includes/Buffer.hpp"
 
-// std::vector<Channel *> g_channels;
+std::vector<Channel *> g_channels;
 
 int main(int argc, char **argv)
 {
