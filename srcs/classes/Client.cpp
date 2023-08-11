@@ -92,3 +92,7 @@ char *Client::fillBuff()
 {
     return (_buffer.getBuf(2));
 }
+
+char*	Client::updateBuf(){
+	return (_buffer.getBuf(1));
+}

@@ -105,7 +105,14 @@ int main(int argc, char **argv)
 					if ((recieved = recv(client->getFd(), client->fillBuff(), 512, MSG_DONTWAIT)) == -1)
 						continue;
 					// else if (!recieved)
-					// 	delete_client();
+					// 	delete_client(my_data, i, nb_fds);
+					else if (!ends(client->fillBuff()))
+						client->updateBuf();
+					else
+					{
+						parsing(&data, client, std::string(client->updateBuf()));
+						client->clearBuf();
+					}
 				}
 			}
 		}

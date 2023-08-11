@@ -24,6 +24,8 @@
 #include <fnmatch.h>
 #include <string.h>
 
+typedef std::vector<std::string>	string_vec;
+
 class Client;
 
 typedef struct s_data
@@ -40,3 +42,5 @@ typedef struct s_data
 int data_init(int argc, char **argv, t_data *my_data);
 int ft_atoi(const char *str);
 Client	*getClient(t_data *data, int fd);
+bool	ends(char *buffer);
+void	parsing(t_data *data, Client *client, std::string buf);

@@ -33,3 +33,36 @@ Client *getClient(t_data *data, int fd){
 	return (NULL);
 
 }
+
+bool	ends(char *buffer){
+	int i = 0;
+	if (!buffer)
+		return (false);
+	while (buffer[i])
+		i++;
+	if (i > 1 && buffer[i - 1] == '\n' && buffer[i - 2] == 'r')
+		return (true);
+	if (i > 0 && (buffer[i - 1] == '\n' || buffer[i - 1] == 'r'))
+		return (true);
+	return (false);
+}
+
+string_vec seperate_lines(std::string s){
+	string_vec lines;
+	std::size_t nb = 0;
+	std::size_t	store1 = 0;
+	std::size_t	store2 = 0;
+	std::size_t	previous = 0;
+	while ((nb = s.find("\r\n", nb)) != std::string::npos
+		|| (nb = s.find("\n", store1)) != std::string::npos
+		|| (nb = s.find("\r", store2)) != std::string::npos)
+	{
+		lines.push_back(s.substr(previous, nb - previous));
+		(s.substr(nb, 2) == std::string("\r\n")) ? previous = (nb += 2) : previous = ++nb;// +2 if \r\n, +1 if \n or \r
+		store1 = nb;
+		store2 = nb;
+	}
+	// if (lines.empty())
+	// 	lines.push_back(s);
+	return (lines);
+}

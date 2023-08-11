@@ -2,9 +2,9 @@ NAME		=	ircserv
 
 SDIR		=	srcs
 
-SRCS		=	main.cpp \
+SRCS		=	main.cpp parsing.cpp\
 				utils.cpp data_init.cpp \
-				classes/Buffer.cpp classes/Client.cpp classes/User.cpp
+				classes/Buffer.cpp classes/Client.cpp classes/User.cpp classes/Channel.cpp
 
 IDIR		=	incs
 

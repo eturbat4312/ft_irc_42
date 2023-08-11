@@ -35,4 +35,5 @@ public:
 	void setIp(const std::string &ip);
 
 	char *fillBuff();
+	char* 	updateBuf();
 };

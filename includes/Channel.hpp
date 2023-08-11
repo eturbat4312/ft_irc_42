@@ -4,7 +4,7 @@
 #include <vector>
 #include <string>
 
-class Channel;
+class Client;
 
 class Channel
 {
